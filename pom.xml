@@ -4,10 +4,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>leo</groupId>
-    <artifactId>commons-lang</artifactId>
+    <artifactId>leo</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>22.0</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
