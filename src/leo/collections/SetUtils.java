@@ -48,4 +48,6 @@ public class SetUtils {
         Set<T> intersection = intersection(set1, set2);
         return difference(union, intersection);
     }
+
+    private SetUtils() {}
 }
