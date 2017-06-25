@@ -10,9 +10,7 @@ import static org.junit.Assert.*;
 public class AnimalTest {
     @Test
     public void testAnimal() {
-        Animal animal1 = new Cat();
-        animal1.setName("Jessy");
-        animal1.setGender("female");
+        Animal animal1 = new Cat("Jessy", "female");
 
         Animal animal2 = new Dog();
         animal2.setName("Bob");
