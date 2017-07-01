@@ -158,6 +158,23 @@ public class ListTest {
         list.add("b");
         assertEquals(0, list.indexOf("a"));
         assertEquals(1, list.indexOf("b"));
+    }
 
+    @Test
+    public void testLastIndexOf() {
+        List<String> list = new CustomLinkedList<>();
+        assertEquals(-1, list.lastIndexOf("a"));
+
+        list.add("a");
+        list.add("b");
+        list.add("a");
+        assertEquals(2, list.lastIndexOf("a"));
+        assertEquals(1, list.lastIndexOf("b"));
+
+        list.add("c");
+        list.add("a");
+        list.add("c");
+        assertEquals(4, list.lastIndexOf("a"));
+        assertEquals(5, list.lastIndexOf("c"));
     }
 }

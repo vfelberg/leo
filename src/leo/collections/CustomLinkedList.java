@@ -138,7 +138,7 @@ public class CustomLinkedList<T> implements List<T> {
     @Override
     public boolean removeAll(Collection<?> c) {
         int countBeforeLoop = count;
-        for(Object e : c){
+        for (Object e : c) {
             remove(e);
         }
         return countBeforeLoop != count;
@@ -161,6 +161,25 @@ public class CustomLinkedList<T> implements List<T> {
     }
 
     @Override
+    public int lastIndexOf(Object o) {
+        int result = -1;
+
+        Node<T> current = first;
+        for (int index = 0; current != null; current = current.next, index++) {
+            if (current.element.equals(o)) {
+                result = index;
+            }
+        }
+
+        return result;
+    }
+
+    @Override
+    public T set(int index, T element) {
+        return null;
+    }
+
+    @Override
     public boolean retainAll(Collection<?> c) {
         return false;
     }
@@ -171,11 +190,6 @@ public class CustomLinkedList<T> implements List<T> {
     }
 
     @Override
-    public T set(int index, T element) {
-        return null;
-    }
-
-    @Override
     public void add(int index, T element) {
 
     }
@@ -183,12 +197,6 @@ public class CustomLinkedList<T> implements List<T> {
     @Override
     public T remove(int index) {
         return null;
-    }
-
-
-    @Override
-    public int lastIndexOf(Object o) {
-        return 0;
     }
 
     @Override
