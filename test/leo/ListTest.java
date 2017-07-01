@@ -177,4 +177,34 @@ public class ListTest {
         assertEquals(4, list.lastIndexOf("a"));
         assertEquals(5, list.lastIndexOf("c"));
     }
+
+    @Test
+    public void testSet() {
+        List<String> list = new CustomLinkedList<>();
+        try {
+            list.set(0, "a");
+            fail("IndexOutOfBoundsException expected");
+        } catch (IndexOutOfBoundsException e) {
+            // expected
+        }
+
+        list.add("a");
+        assertEquals("a", list.set(0, "b"));
+        assertArrayEquals(new String[]{"b"}, list.toArray());
+        try {
+            list.set(1, "a");
+            fail("IndexOutOfBoundsException expected");
+        } catch (IndexOutOfBoundsException e) {
+            // expected
+        }
+
+        list.add("a");
+        list.add("c");
+        assertArrayEquals(new String[]{"b", "a", "c"}, list.toArray());
+
+        assertEquals("b", list.set(0, "a"));
+        assertEquals("a", list.set(1, "b"));
+        assertEquals("c", list.set(2, "c"));
+        assertArrayEquals(new String[]{"a", "b", "c"}, list.toArray());
+    }
 }
