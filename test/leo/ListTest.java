@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import leo.collections.CustomLinkedList;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -133,5 +134,30 @@ public class ListTest {
         list.add("c");
         assertTrue(list.remove("b"));
         assertArrayEquals(new String[]{"a", "c"}, list.toArray());
+    }
+
+    @Test
+    public void testRemoveAll(){
+        List<String> list = new CustomLinkedList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        assertTrue(list.removeAll(ImmutableList.of("a", "b")));
+        assertArrayEquals(new String[]{"c"}, list.toArray());
+
+        assertFalse(list.removeAll(ImmutableList.of("d", "e")));
+        assertArrayEquals(new String[]{"c"}, list.toArray());
+    }
+
+    @Test
+    public void testIndexOf() {
+        List<String> list = new CustomLinkedList<>();
+        assertEquals(-1, list.indexOf("a"));
+
+        list.add("a");
+        list.add("b");
+        assertEquals(0, list.indexOf("a"));
+        assertEquals(1, list.indexOf("b"));
+
     }
 }
